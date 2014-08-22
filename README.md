@@ -1,4 +1,4 @@
 PySmash
 =======
 
-use Python to build Smash
+use Python to build Smash and compare with JavaSmash
