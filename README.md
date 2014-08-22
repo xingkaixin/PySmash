@@ -1,4 +1,4 @@
 PySmash
 =======
 
-use Pythong to build Smash
+use Python to build Smash
