@@ -1,5 +1,6 @@
-__author__ = 'XingKaiXin.me'
 # -*- coding: utf-8 -*-
+__author__ = 'XingKaiXin.me'
+
 import random
 
 
