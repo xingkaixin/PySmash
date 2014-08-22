@@ -15,7 +15,6 @@ class Smash:
             single_smash.remove(randint)
             self.smash.append(randint)
 
-
     # 单个数字在Smash中存在与否，位置多少
     def findnum(self, onenum):
         if self.smash.count(onenum) > 0:
@@ -28,7 +27,6 @@ class Smash:
     def complareSmash(self, guessnum):
         exist = 0
         result = []
-        print self.smash
         for i in range(4):
             a = int(str(guessnum)[i])
             b = self.findnum(a)
@@ -39,5 +37,3 @@ class Smash:
                 result.append(0)
         result.append(exist)
         return result
-
-

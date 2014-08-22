@@ -47,30 +47,46 @@ class ResolveSmash:
                 s = int(prenum[i])
                 if s == 0:
                     if i == 0:
-                        new_s = self.getNumFromint(prenum, int1, i)
+                        new_s = self.getNumFromint(prenum, int1)
                         prenum = prenum[0:i] +str(new_s) + prenum[i+1:4]
                     elif i == 1:
-                        new_s = self.getNumFromint(prenum, int2, i)
+                        new_s = self.getNumFromint(prenum, int2)
                         prenum = prenum[0:i] +str(new_s) + prenum[i+1:4]
                     elif i == 2:
-                        new_s = self.getNumFromint(prenum, int3, i)
+                        new_s = self.getNumFromint(prenum, int3)
                         prenum = prenum[0:i] +str(new_s) + prenum[i+1:4]
                     else:
-                        new_s = self.getNumFromint(prenum, int4, i)
+                        new_s = self.getNumFromint(prenum, int4)
                         prenum = prenum[0:i] +str(new_s) + prenum[i+1:4]
         print prenum
         return int(prenum)
 
-    def getNumFromint(self, prenum, int, loc):
+    def getNumFromint(self, prenum, int):
         for i in int:
             s = str(i)
             if prenum.count(s) == 0:
                 return s
                 break
 
-s = ResolveSmash()
-ss = s.getNextGuessPre(5234, [1, 1, 0, 1])
+    def delNumsFromintall(self, num):
+        for i in range(4):
+            s = int(str(num)[i])
+            if i == 0:
+                self.int1 = self.delNumFromint(s, self.int1)
+                self.int5 = self.delNumFromint(s, self.int5)
+            elif i == 1:
+                self.int2 = self.delNumFromint(s, self.int2)
+                self.int6 = self.delNumFromint(s, self.int6)
+            elif i == 2:
+                self.int3 = self.delNumFromint(s, self.int3)
+                self.int7 = self.delNumFromint(s, self.int7)
+            elif i == 3:
+                self.int4 = self.delNumFromint(s, self.int4)
+                self.int8 = self.delNumFromint(s, self.int8)
 
-s.getNexGuess(ss, s.int1, s.int2, s.int3, s.int4, 4)
 
 
+    def delNumFromint(self, num, int):
+        if int.count(num) > 0:
+            int.remove(num)
+        return int
