@@ -16,6 +16,6 @@ class Test1(unittest.TestCase):
     def testsmash(self):
         print self.s.complareSmash(1234)
 
-#
-# if __name__ =='__main__':
-#     unittest.main()
+
+if __name__ =='__main__':
+    unittest.main()
