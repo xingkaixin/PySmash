@@ -41,6 +41,3 @@ class Smash:
         return result
 
 
-s = Smash()
-a = raw_input("abc:")
-print s.complareSmash(a)
