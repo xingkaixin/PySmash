@@ -1,4 +1,4 @@
-__author__ = 'Administrator'
+__author__ = 'XingKaiXin.me'
 # -*- coding: utf-8 -*-
 import random
 
