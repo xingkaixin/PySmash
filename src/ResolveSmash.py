@@ -3,7 +3,9 @@ __author__ = 'XingKaiXin.me'
 
 import copy
 
-
+"""
+解Smash
+"""
 class ResolveSmash:
     int1 = []
     int2 = []
