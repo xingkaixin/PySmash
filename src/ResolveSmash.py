@@ -7,6 +7,9 @@ import copy
 解Smash,生成下轮要猜的数字，在数组集合中移除已竞猜过的数字~~~~~
 """
 class ResolveSmash:
+    FIRSTSTEP = 1234
+    SECONDSTEP = 5678
+
     int1 = []
     int2 = []
     int3 = []
@@ -43,6 +46,20 @@ class ResolveSmash:
                 NextGuessPre += "0"
         return NextGuessPre
 
+
+    def getNextGuessAfterFirstandSecondStep(self, result1, result2):
+        str1 = self.getNextGuessPre(self.FIRSTSTEP, result1)
+        str2 = self.getNextGuessPre(self.SECONDSTEP, result2)
+        nextstr = ""
+        for i in range(0,4):
+            if str1[i] != "0":
+                nextstr += str1[i]
+            elif str2[i] != "0":
+                nextstr += str2[i]
+            else:
+                nextstr += "0"
+        return nextstr
+
     def getNexGuess(self, prenum, int1, int2, int3, int4, count):
         if count > 0:
             for i in range(4):
@@ -60,8 +77,7 @@ class ResolveSmash:
                     else:
                         new_s = self.getNumFromint(prenum, int4)
                         prenum = prenum[0:i] +str(new_s) + prenum[i+1:4]
-        print prenum
-        return int(prenum)
+        return prenum
 
     def getNumFromint(self, prenum, int):
         for i in int:
@@ -87,8 +103,8 @@ class ResolveSmash:
                 self.int8 = self.delNumFromint(s, self.int8)
 
 
-
     def delNumFromint(self, num, int):
         if int.count(num) > 0:
             int.remove(num)
         return int
+
