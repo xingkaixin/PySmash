@@ -4,7 +4,7 @@ __author__ = 'XingKaiXin.me'
 import copy
 
 """
-解Smash,生成下轮要猜的数字
+解Smash,生成下轮要猜的数字，在数组集合中移除已竞猜过的数字
 """
 class ResolveSmash:
     int1 = []
