@@ -27,7 +27,7 @@ class Test1(unittest.TestCase):
         turntime = 0
         alltrytime = 0
         start = time.clock()
-        while turntime < 2000000:
+        while turntime < 20000000:
             s = Smash.Smash()
             #print "本轮要竞猜的数字是",s.smash
             r = ResolveSmash.ResolveSmash()
