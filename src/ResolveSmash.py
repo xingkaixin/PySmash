@@ -1,3 +1,4 @@
+#!/usr/bin/python
 # -*- coding: utf-8 -*-
 __author__ = 'XingKaiXin.me'
 
@@ -51,7 +52,7 @@ class ResolveSmash:
         str1 = self.getNextGuessPre(self.FIRSTSTEP, result1)
         str2 = self.getNextGuessPre(self.SECONDSTEP, result2)
         nextstr = ""
-        for i in range(0,4):
+        for i in range(0, 4):
             if str1[i] != "0":
                 nextstr += str1[i]
             elif str2[i] != "0":
@@ -62,29 +63,42 @@ class ResolveSmash:
 
     def getNexGuess(self, prenum, int1, int2, int3, int4, count):
         if count > 0:
+            gettime = 0
             for i in range(4):
                 s = int(prenum[i])
                 if s == 0:
-                    if i == 0:
+                    if i == 0 and len(int1) > 0:
                         new_s = self.getNumFromint(prenum, int1)
-                        prenum = prenum[0:i] +str(new_s) + prenum[i+1:4]
-                    elif i == 1:
+                        if new_s != "0":
+                            prenum = prenum[0:i] +str(new_s) + prenum[i+1:4]
+                            gettime += 1
+                    elif i == 1 and len(int2) > 0:
                         new_s = self.getNumFromint(prenum, int2)
-                        prenum = prenum[0:i] +str(new_s) + prenum[i+1:4]
-                    elif i == 2:
+                        if new_s != "0":
+                            prenum = prenum[0:i] +str(new_s) + prenum[i+1:4]
+                            gettime += 1
+                    elif i == 2 and len(int3) > 0:
                         new_s = self.getNumFromint(prenum, int3)
-                        prenum = prenum[0:i] +str(new_s) + prenum[i+1:4]
-                    else:
+                        if new_s != "0":
+                            prenum = prenum[0:i] +str(new_s) + prenum[i+1:4]
+                            gettime += 1
+                    elif i == 3 and len(int4) > 0:
                         new_s = self.getNumFromint(prenum, int4)
-                        prenum = prenum[0:i] +str(new_s) + prenum[i+1:4]
+                        if new_s != "0":
+                            prenum = prenum[0:i] +str(new_s) + prenum[i+1:4]
+                            gettime += 1
+                if gettime == count:
+                    break
         return prenum
 
     def getNumFromint(self, prenum, int):
+        newnum = "0"
         for i in int:
             s = str(i)
             if prenum.count(s) == 0:
-                return s
+                newnum = s
                 break
+        return newnum
 
     def delNumsFromintall(self, num):
         for i in range(4):

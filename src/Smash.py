@@ -1,3 +1,4 @@
+#!/usr/bin/python
 # -*- coding: utf-8 -*-
 __author__ = 'XingKaiXin.me'
 
@@ -9,11 +10,13 @@ class Smash:
 
     # 生成一个4位不重复数字
     def __init__(self):
+        self.smash = []
         single_smash = range(1, 9)
         for i in range(0, 4):
             randint = random.choice(single_smash)
             single_smash.remove(randint)
             self.smash.append(randint)
+
 
     # 单个数字在Smash中存在与否，位置多少
     def findnum(self, onenum):
