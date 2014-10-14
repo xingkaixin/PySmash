@@ -24,10 +24,12 @@ class Test1(unittest.TestCase):
         pass
 
     def testsmash(self):
+        testtime = 10000
         turntime = 0
         alltrytime = 0
+        result_turn = []
         start = time.clock()
-        while turntime < 20000000:
+        while turntime < testtime:
             s = Smash.Smash()
             #print "本轮要竞猜的数字是",s.smash
             r = ResolveSmash.ResolveSmash()
@@ -40,6 +42,8 @@ class Test1(unittest.TestCase):
                 #print "猜对了！", r.FIRSTSTEP,trytime
                 alltrytime += trytime
                 turntime += 1
+                result_turn.append(trytime)
+
             else:
                 r.delNumsFromintall(r.FIRSTSTEP)
                 step2 = s.complareSmash(r.SECONDSTEP)
@@ -49,6 +53,7 @@ class Test1(unittest.TestCase):
                     #print "猜对了！", r.SECONDSTEP,trytime
                     alltrytime += trytime
                     turntime += 1
+                    result_turn.append(trytime)
                 else:
                     r.delNumsFromintall(r.SECONDSTEP)
                     part1 = step1[4]-step1[0]-step1[1]-step1[2]-step1[3]
@@ -64,11 +69,14 @@ class Test1(unittest.TestCase):
                             #print "猜对了！", nextprenum, trytime
                             alltrytime += trytime
                             turntime += 1
+                            result_turn.append(trytime)
                         else:
                             r.delNumsFromintall(int(nextprenum))
                             nextprenum = r.getNextGuessPre(int(nextprenum), nextresult)
         end = time.clock()
         print end-start, turntime, alltrytime, alltrytime/turntime
+        for tt in range(1, 10):
+            print tt, result_turn.count(tt)/testtime*100
 
 
     def testresolve(self):
